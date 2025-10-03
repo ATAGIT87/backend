@@ -8,21 +8,16 @@
     "dev": "ts-node src/app.ts"
   },
   "dependencies": {
-    "@aws-sdk/client-dynamodb": "^3.902.0",
-    "@aws-sdk/lib-dynamodb": "^3.902.0",
-    "aws-sdk": "^2.1692.0",
-    "bcryptjs": "^3.0.2",
+    "aws-sdk": "^2.1692.0",  
     "cors": "^2.8.5",
     "dotenv": "^17.2.3",
     "express": "^5.1.0"
   },
   "devDependencies": {
-    "@types/bcryptjs": "^2.4.6",
-    "@types/cors": "^2.8.19",
-    "@types/dotenv": "^6.1.1",
-    "@types/express": "^5.0.3",
-    "@types/node": "^24.6.2",
-    "ts-node": "^10.9.2",
-    "typescript": "^5.9.3"
+    "@types/aws-sdk": "^2.7.0",
+  "@types/cors": "^2.8.19",
+  "@types/express": "^5.0.3",
+  "ts-node": "^10.9.2",
+  "typescript": "^5.9.3"
   }
 }
