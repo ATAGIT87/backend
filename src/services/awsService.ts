@@ -22,3 +22,14 @@ export const saveUser = async (username: string, password: string) => {
   await dynamoDB.put(params).promise();
   return { message: "User saved!" };
 };
+
+
+// Get user
+export const getUser = async (username: string) => {
+  const params = {
+    TableName: process.env.DYNAMODB_TABLE as string,
+    Key: { username },
+  };
+  const result = await dynamoDB.get(params).promise();
+  return result.Item;
+};
