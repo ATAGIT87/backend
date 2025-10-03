@@ -8,16 +8,16 @@
     "dev": "ts-node src/app.ts"
   },
   "dependencies": {
-    "aws-sdk": "^2.1692.0",  
+    "aws-sdk": "^2.1692.0",
     "cors": "^2.8.5",
-    "dotenv": "^17.2.3",
+    "dotenv": "^16.4.5",
     "express": "^5.1.0"
   },
   "devDependencies": {
-    "@types/aws-sdk": "^2.7.0",
-  "@types/cors": "^2.8.19",
-  "@types/express": "^5.0.3",
-  "ts-node": "^10.9.2",
-  "typescript": "^5.9.3"
+    "@types/node": "^20.11.30",
+    "@types/cors": "^2.8.19",
+    "@types/express": "^5.0.3",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.9.3"
   }
 }
