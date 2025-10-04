@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "dist/app.js",
   "scripts": {
-    "build": "tsc && cp -r src/swagger dist/swagger",
+    "build": "tsc &&  npx copyfiles -u 1 src/swagger/**/* dist/",
     "start": "node dist/app.js",
     "dev": "ts-node src/app.ts"
   },
@@ -21,6 +21,7 @@
     "@types/node": "^20.19.19",
     "@types/swagger-ui-express": "^4.1.8",
     "@types/yamljs": "^0.2.34",
+    "copyfiles": "^2.4.1",
     "ts-node": "^10.9.2",
     "typescript": "^5.9.3"
   }

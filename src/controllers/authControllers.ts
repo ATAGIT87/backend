@@ -8,11 +8,6 @@ export const signup = async (req: Request, res: Response) => {
     return res.status(400).json({ error: "Username and password are required" });
   }
 
- /* res.json({
-    message: 'Signup endpoint hit!',
-    received: { username, password }
-  });*/
-
    try {
     // Call DynamoDB service
     const result = await saveUser(username, password);
