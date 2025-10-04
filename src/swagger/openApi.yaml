@@ -1,0 +1,77 @@
+openapi: 3.0.0
+info:
+  title: User Authentication API
+  version: 1.0.0
+  description: >
+    This API provides user registration (signup) and login (signin)
+    functionality using AWS DynamoDB.
+  contact:
+    name: Ali Tabatabaei
+    email: al@tabatabaei.com
+
+servers:
+  - url: https://backend-mn3f.onrender.com
+    description: Production (Render)
+
+paths:
+  /api/auth/signup:
+    post:
+      summary: Register a new user
+      description: Create a user account with username and password
+      tags:
+        - Authentication
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - username
+                - password
+              properties:
+                username:
+                  type: string
+                  example: johndoe
+                password:
+                  type: string
+                  example: secret123
+      responses:
+        '201':
+          description: User created successfully
+        '400':
+          description: Missing username or password
+        '500':
+          description: Server error
+
+  /api/auth/signin:
+    post:
+      summary: Sign in existing user
+      description: Authenticate user with username and password
+      tags:
+        - Authentication
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - username
+                - password
+              properties:
+                username:
+                  type: string
+                  example: johndoe
+                password:
+                  type: string
+                  example: secret123
+      responses:
+        '200':
+          description: Signin successful
+        '401':
+          description: Invalid credentials
+        '404':
+          description: User not found
+        '500':
+          description: Server error

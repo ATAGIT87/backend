@@ -4,12 +4,19 @@ dotenv.config();
 import express from 'express';
 import cors from 'cors';
 import authRoutes from './routers/auth';
+import swaggerUi from "swagger-ui-express";
+import YAML from "yamljs";
+import path from "path";
+
+const swaggerPath = path.join(__dirname, "swagger", "openapi.yaml");
+const swaggerDocument = YAML.load(swaggerPath);
 
 const app = express();
 const PORT = process.env.PORT || 4000;
 
 app.use(cors());
 app.use(express.json());
+app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
 // Auth routes
 app.use('/api/auth', authRoutes);
