@@ -16,10 +16,11 @@ const PORT = process.env.PORT || 4000;
 
 app.use(cors());
 app.use(express.json());
-app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocument));
-app.get('/api-docs/openApi.yaml', (req, res) => {
+app.get("/api-docs/openApi.yaml", (req, res) => {
   res.sendFile(swaggerPath);
 });
+
+app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
 // Auth routes
 app.use('/api/auth', authRoutes);
