@@ -2,29 +2,29 @@ import dotenv from "dotenv";
 dotenv.config();
 import express from "express";
 import cors from "cors";
-import http from "http"; // برای socket.io
+import http from "http"; // for socket.io
 import { Server } from "socket.io";
 import path from "path";
 import swaggerUi from "swagger-ui-express";
 import YAML from "yamljs";
 import authRoutes from "./routers/auth";
 
-// 📘 مسیر فایل Swagger YAML
 const swaggerPath = path.join(process.cwd(), "src", "swagger", "openApi.yaml");
 const swaggerDocument = YAML.load(swaggerPath);
 
 const app = express();
-const server = http.createServer(app); // ایجاد سرور HTTP مشترک با express
+const server = http.createServer(app); // create HTTP server
+// initialize new instance of socket.io by passing the http server object
 const io = new Server(server, {
   cors: {
-    origin: "*", // در محیط واقعی باید فقط دامنه خودت باشه
+    origin: "*", // own domain in production
     methods: ["GET", "POST"]
   }
 });
 
 const PORT = process.env.PORT || 4000;
 
-// 🧩 Middlewareها
+
 app.use(cors());
 app.use(express.json());
 
